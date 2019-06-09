@@ -3,6 +3,7 @@ import { Route, NavLink, HashRouter } from "react-router-dom";
 import Home from './components/Home';
 import Stuff from './components/Stuff';
 import Contact from './components/Contact';
+import './app.scss';
 
 class App extends Component {
     render() {
