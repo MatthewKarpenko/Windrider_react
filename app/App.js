@@ -7,7 +7,6 @@ import './app.scss';
 
 class App extends Component {
     render() {
-        console.log('asdad')
         return (
             <HashRouter>
                 <div>
