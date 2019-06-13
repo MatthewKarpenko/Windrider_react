@@ -1,0 +1,36 @@
+.sendInfo {
+    margin: auto;
+    width: 37%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  
+  }
+  .sendInfo button {
+    margin: auto;
+    display: block;
+  }
+  
+  .formInput {
+    border-radius: 7px !important;
+  }
+  
+  .LogOrRegistration {
+    display: flex;
+    width: 265px;
+    margin: auto;
+    justify-content: space-around;
+    font-size: 25px;
+    padding-top: 20px;
+  }
+  
+  .footer, .navHeader {
+    background-color: #4682b4;
+  }
+  
+  .SendFormButton {
+    background-color: #ffb74d;
+  }
+  
+  .activeForm {
+    border-bottom: 1px solid red;
+  }

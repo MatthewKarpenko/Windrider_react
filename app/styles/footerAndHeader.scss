@@ -1,0 +1,10 @@
+@import './variables/colors.scss';
+
+.page-footer {
+    
+    bottom: 0;
+    width: 100%
+}
+.nav-wrapper, .page-footer {
+    background-color: $primary-color !important;
+}
