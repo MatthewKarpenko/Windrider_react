@@ -1,36 +1,175 @@
-.sendInfo {
-    margin: auto;
-    width: 37%;
-    margin-top: 20px;
-    margin-bottom: 20px;
+@import './variables/mixin.scss';
+
+.App {
+  height: 100%;
+  display: flex;
+  color: white;
   
+}
+
+.App__Aside {
+  width: 45%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 25%;
   }
-  .sendInfo button {
-    margin: auto;
-    display: block;
+  p {
+    color: $primary-color;
+    font-weight: 900;
+    font-size: 52px;
   }
-  
-  .formInput {
-    border-radius: 7px !important;
-  }
-  
-  .LogOrRegistration {
-    display: flex;
-    width: 265px;
-    margin: auto;
-    justify-content: space-around;
-    font-size: 25px;
-    padding-top: 20px;
-  }
-  
-  .footer, .navHeader {
-    background-color: #4682b4;
-  }
-  
-  .SendFormButton {
-    background-color: #ffb74d;
-  }
-  
-  .activeForm {
-    border-bottom: 1px solid red;
-  }
+  @include media((display: (sm: none, md: none),
+		))
+}
+
+.App__Form {
+  width: 55%;
+  background-color: #e0f2f1;
+  padding: 25px 60px;
+  @include media((width: (sm: 100%, md: 100%),
+		))
+}
+
+.PageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+  @include media((display: (sm: none, md: none),
+		))
+}
+
+.PageSwitcher__Item {
+  background-color: white;
+  color: $primary-color;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: .9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.PageSwitcher__Item--Active {
+  background-color: $primary-color;
+  color: white;
+}
+
+.PageSwitcher__Item:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.PageSwitcher__Item:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.FormCenter {
+  margin-bottom: 100px;
+}
+
+.FormTitle {
+  color: #707C8B;
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.FormTitle__Link {
+  color: $primary-color;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.7em;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+
+.FormTitle__Link:first-child {
+  margin-left: 0;
+}
+
+.FormTitle__Link--Active {
+  color: white;
+  border-bottom: 1px solid $primary-color;
+}
+
+.FormField {
+  margin-bottom: 40px;
+}
+
+.fieldWithError p{
+  font-size: 10px;
+  color: gray;
+}
+
+.error {
+  color: red !important;
+}
+.mailError {
+  display: none;
+  color: red !important;
+}
+
+.FormField__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: .9em;
+  color: $primary-color;
+  font-weight: 500;
+}
+.FormField__Input {
+  width: 80% !important;
+  background-color: transparent;
+  border: none;
+  color: $primary-color;
+  outline: none;
+  border-bottom: 1px solid #445366;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.FormField__Input::placeholder {
+  color: $primary-color ;
+}
+
+.FormField__Button {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: .8em;
+  font-weight: 500;
+}
+
+.FormField__Link {
+  color: #66707D;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1.5px solid #225E62;
+  padding-bottom: 5px;
+}
+
+.FormField__CheckboxLabel {
+  color: #646F7D;
+  font-size: .9em;
+}
+
+.FormField__Checkbox {
+  position: relative;
+  top: 1.5px;
+}
+
+.FormField__TermsLink {
+  color: white;
+  border-bottom: 1px solid #199087;
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
