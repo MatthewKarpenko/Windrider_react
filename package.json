@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack-dev": "webpack-dev-server --mode development --watch"
+    "webpack-dev": "webpack-dev-server --mode development --watch",
+    "nodemon-dev": "nodemon server\\index.js",
+    "dev": "concurrently \"npm run nodemon-dev\" \"npm run webpack-dev\""
   },
   "keywords": [
     "Windrider",
@@ -15,7 +17,18 @@
   "license": "ISC",
   "dependencies": {
     "@babel/preset-env": "^7.4.4",
-    "webpack-dev-server": "^3.7.1"
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.15",
+    "multer": "^1.4.1",
+    "nodemon": "^1.19.1",
+    "static-asset": "^0.6.0",
+    "static-assets": "0.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -30,6 +43,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2"
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.7.1"
   }
 }
