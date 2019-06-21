@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navigation from './components/Navigation.js'
 import './app.scss';
-import { HashRouter} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 class App extends Component {
 

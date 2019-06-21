@@ -1,4 +1,13 @@
 @import './styles/footerAndHeader.scss';
 @import './styles/logRegForms.scss';
 @import './styles/variables/colors.scss';
-@import './styles//variables/mixin.scss'
+@import './styles/variables/mixin.scss';
+@import './styles/personalPageStyles/WholePageStyles.scss';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body {
+    color: white;    
+    font-family: 'Rubik', sans-serif;       
+}

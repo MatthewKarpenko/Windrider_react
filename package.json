@@ -24,14 +24,14 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "materialize-css": "^1.0.0",
     "mongoose": "^5.5.15",
     "multer": "^1.4.1",
     "nodemon": "^1.19.1",
-    "static-asset": "^0.6.0",
-    "static-assets": "0.0.0",
-    "materialize-css": "^1.0.0",
     "react-materialize": "^3.3.1",
     "react-router": "^5.0.1",
+    "static-asset": "^0.6.0",
+    "static-assets": "0.0.0",
     "webpack-dev-server": "^3.7.1"
   },
   "devDependencies": {
