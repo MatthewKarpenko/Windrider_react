@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch } from "react-router-dom";
 
 import LoginRegistration from './LoginRegistration';
 import WholePersonalPage from './personalPage';
+import MainPage from './MainPage';
 
 
 class Navigation extends React.Component {
@@ -11,7 +12,8 @@ class Navigation extends React.Component {
             <BrowserRouter>
                 <Switch>
                     <Route path='/LogInOrRegistration' component={LoginRegistration} />
-                    <Route path='/personalPage' component={WholePersonalPage}/>
+                    <Route path='/personalPage' component={WholePersonalPage} />
+                    <Route exact path='/' component={MainPage} />
                 </Switch>
             </BrowserRouter>
         );
