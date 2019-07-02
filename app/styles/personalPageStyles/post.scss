@@ -1,0 +1,42 @@
+@import '../variables/mixin.scss';
+
+.sectionWithPost {
+    margin-top: 20px;
+    margin-bottom: 5px;
+}
+
+.postHolder {
+    margin: auto !important;
+}
+
+@media only screen and (min-width: 480px) {
+  .postHolder {
+    width: 450px !important;
+  }
+}
+
+.username-image {
+    display: flex;
+    align-items: center;
+    p {
+        font-size: 16px;
+        margin-left: 9px;
+    }
+    img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+.author-time {
+    color: black;
+}
+
+.comments-likes-container {
+    color: black;
+}
+
+.comment-button {
+    display: none !important;
+    margin: auto !important;
+}

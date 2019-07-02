@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-materialize'
+import { Button } from 'react-materialize';
+
+const axios = require('axios'); 
 
 class SignUpForm extends Component {
     constructor() {
@@ -56,6 +58,18 @@ class SignUpForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+
+        axios.post('localhost:3000/windrider/proriders/login', {
+          email: 'mtw.karp@gmail.com',
+          password: 'hello hello'
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
         if (!event.target.checkValidity()) {
           this.setState({displayErrors: true})
           return;
@@ -85,7 +99,9 @@ class SignUpForm extends Component {
         }
       }
     
+    componentDidMount() {
     
+    }
 
     render() {
         return (

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-materialize'
+import { Button } from 'react-materialize';
+import axios from 'axios';
 class SignInForm extends Component {
     constructor() {
         super();
@@ -12,7 +13,6 @@ class SignInForm extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.checkMail = this.checkMail.bind(this);
         this.mailEr = React.createRef();
     }
 
@@ -26,16 +26,6 @@ class SignInForm extends Component {
         });
     }
 
-    checkMail(e) {
-      if(e.target.checkValidity()){
-        this.setState({mailError: false})
-        this.mailEr.current.style.display="none"
-        return
-      }else {
-        this.setState({mailError: true})
-        this.mailEr.current.style.display="block"
-      }
-    }
 
     handleSubmit(e) {
       e.preventDefault();
@@ -52,6 +42,10 @@ class SignInForm extends Component {
       // });
     }
 
+    componentDidMount() {
+      
+    }
+
     render() {
         return (
         <div className="FormCenter">
@@ -64,7 +58,6 @@ class SignInForm extends Component {
                        placeholder="Enter your email" 
                        name="email" value={this.state.email} 
                        onChange={this.handleChange} 
-                       onBlur={this.checkMail}
                        required />
                        <p ref={this.mailEr} className="mailError">*Некорректный адрес почты</p>
               </div>
