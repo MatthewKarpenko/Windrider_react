@@ -33,6 +33,16 @@ class SignInForm extends Component {
         //some code after backend will be ready
         return;
       }
+      axios.post('localhost:3000/windrider/proriders/login', {
+        email: 'mtw.karp@gmail.com',
+        password: 'hello hello'
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
       console.log("done")
       //  const data = new FormData(event.target);
   

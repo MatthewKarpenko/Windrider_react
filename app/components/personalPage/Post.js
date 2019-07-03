@@ -3,6 +3,27 @@ import React from 'react';
 import WindriderImg from '../../images/head3.png'
 
 class Post extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showCommentButton: false
+        }
+        this.showElem = this.showElem.bind(this);
+        this.hideElem = this.hideElem.bind(this);
+    }
+
+    showElem () {
+        this.setState({showCommentButton: true})
+        console.log(this.state.showCommentButton)
+    }
+
+    hideElem () {
+        this.setState({showCommentButton: false});
+        console.log(this.state.showCommentButton)
+
+    }
+
     render() {
         return (
             <section className="sectionWithPost">
@@ -11,10 +32,12 @@ class Post extends React.Component {
                     <div className="content author-time">
                         <div className="right floated meta">14ч.</div>
                         <div className="username-image">
-                        <img className="ui avatar image" src={WindriderImg} /> <p>Матвей Карпенко</p>
+                        <img className="ui avatar image" src={WindriderImg} /><p>Матвей Карпенко</p>
                         </div>
                     </div>
-
+                <div className="post-text">
+                    Привет как дела меня зовут матвей я тут гуляю дома со своей собакой маней и меня вообще ничего не колышит
+                </div>
                 <div className="image">
                     <img src={WindriderImg} />
                 </div>
@@ -29,10 +52,13 @@ class Post extends React.Component {
                 <div className="extra content">
                     <div className="ui large transparent left icon input">
                             <i className="comment outline icon"></i>
-                    <input type="text" placeholder="Оставить комментарий..."/>
+                    <input type="text" 
+                    onFocus={this.showElem} 
+                    onBlur={this.hideElem} 
+                    placeholder="Оставить комментарий..."/>
                      
-                    </div>
-                        <button class="ui secondary button comment-button">
+                    </div>        
+                        <button className="ui secondary button comment-button" style={ this.state.showCommentButton ? { display:'block'} : {display : 'none'} }>
                             Отправить
                         </button>  
                 </div>

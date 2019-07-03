@@ -59,16 +59,7 @@ class SignUpForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        axios.post('localhost:3000/windrider/proriders/login', {
-          email: 'mtw.karp@gmail.com',
-          password: 'hello hello'
-        })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      
 
         if (!event.target.checkValidity()) {
           this.setState({displayErrors: true})
