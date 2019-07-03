@@ -60,13 +60,13 @@ app.use('/posts', postsRouter);
 app.use((req, res, next) => {
     const err = new Error('Not Found');
     err.status = 404;
-    res.render('404');
+    res.json('404');
 });
 
 app.use((error, req, res, next) => {
     res.status(error.status || 500);
     console.log(error.message);
-    res.render('500', {
+    res.json({
         message: error.message,
         error: !config.IS_PRODUCTION ? error : {}
     });

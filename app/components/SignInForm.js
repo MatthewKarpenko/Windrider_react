@@ -33,9 +33,9 @@ class SignInForm extends Component {
         //some code after backend will be ready
         return;
       }
-      axios.post('localhost:3000/windrider/proriders/login', {
-        email: 'mtw.karp@gmail.com',
-        password: 'hello hello'
+      axios.post('http://localhost:3000/proriders/login', {
+        email: 'kostya1992.dlm@gmail.com',
+        password: '1q2w3elox'
       })
         .then(function (response) {
           console.log(response);
