@@ -2,25 +2,39 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-materialize';
 import axios from 'axios';
+import { Modal } from 'semantic-ui-react'; 
+
+axios.defaults.baseURL = 'http://localhost:3000';
+
 class SignInForm extends Component {
     constructor() {
         super();
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            errorMessage: '',
+            errorVisibility: false,
+            open: false
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.mailEr = React.createRef();
+        this.loginEr = React.createRef();
+        this.show = size => () => this.setState({
+          size,
+          open: true
+        })
+        this.close = () => this.setState({
+          open: false
+        })
     }
 
     handleChange(e) {
         let target = e.target;
         let value = target.type === 'checkbox' ? target.checked : target.value;
         let name = target.name;
-
+     
         this.setState({
           [name]: value
         });
@@ -33,28 +47,42 @@ class SignInForm extends Component {
         //some code after backend will be ready
         return;
       }
-      axios.post('http://localhost:3000/proriders/login', {
-        email: 'kostya1992.dlm@gmail.com',
-        password: '1q2w3elox'
+      axios.post('/proriders/login', {
+        email: this.state.email,
+        password: this.state.password
       })
-        .then(function (response) {
-          console.log(response);
+        .then((res) => {
+          console.log(res);
+          if(this.state.errorVisibility) {
+            this.setState({ errorVisibility: false });
+          }
         })
-        .catch(function (error) {
-          console.log(error);
+        .catch((err) => {
+          if (err.response) {
+
+            if (err.response.status === 401) {
+              this.setState({errorMessage: 'Неверная почта или пароль'})
+              this.setState({errorVisibility: true})
+            }
+            // console.log(err.response.data);
+            // console.log(err.response.status);
+            // console.log(err.response.headers);
+          } else if (err.request) {
+            this.setState({ errorMessage: 'Неполадки с сервером, попробуйте перезагрузить страницу' });
+              this.setState({ open: true} );
+            //console.log(err.request);
+          } else {
+             this.setState({ errorMessage: 'Что то пошло не так, попробуйте перезагрузить страницу или сообщите об ошибке администратору' });
+            this.setState({ open: true} );
+            console.log('Error', err.message);
+          }
+          //console.log(err.config);
         });
-      console.log("done")
-      //  const data = new FormData(event.target);
-  
-      // fetch('/api/form-submit-url', {
-      //   method: 'POST',
-      //   body: data,
-      // });
+      
+     
     }
 
-    componentDidMount() {
-      
-    }
+  
 
     render() {
         return (
@@ -69,7 +97,7 @@ class SignInForm extends Component {
                        name="email" value={this.state.email} 
                        onChange={this.handleChange} 
                        required />
-                       <p ref={this.mailEr} className="mailError">*Некорректный адрес почты</p>
+                      
               </div>
 
               <div className="FormField">
@@ -77,10 +105,22 @@ class SignInForm extends Component {
                 <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
               </div>
 
+              <p ref={this.loginEr} 
+              className="error-login-signup error" 
+              style={this.state.errorVisibility ? { display: 'block' } : { display: 'none' }}>
+                  *{this.state.errorMessage}
+              </p>
+
               <div className="FormField">
                   <Button className="FormField__Button mr-20">Sign In <i class="material-icons right">send</i></Button> 
               </div>
             </form>
+          <Modal size={'tiny'} open={this.state.open} onClose={this.close} style={{margin: 'auto'}} closeIcon>
+              <Modal.Header className='alert-color'>Упс, ошибочка </Modal.Header>
+              <Modal.Content style={{color: 'black'}}>
+              <p style={{color: 'black'}}>{this.state.errorMessage}</p>
+              </Modal.Content>
+          </Modal>
           </div>
         );
     }

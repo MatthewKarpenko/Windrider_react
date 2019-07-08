@@ -1,15 +1,14 @@
 import React from 'react';
 
 import Header from './Header';
-import Post from './Post';
+import AddPost from './AddPost';
 
 class WholePersonalPage extends React.Component {
     render() {
         return (
-            <main>
-                <sectio> <Header /> </sectio>
-                
-                <section> <Post/> </section>
+            <main className='personalPage-holder'>
+                <section> <Header /> </section>
+                <section> <AddPost /> </section>      
             </main>
         )
     }

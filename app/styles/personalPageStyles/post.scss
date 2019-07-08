@@ -38,6 +38,7 @@
 
 .comment-button {
     margin: auto !important;
+    margin-top: 5px !important;
 }
 
 .post-text {
@@ -46,3 +47,9 @@
     color: black;
     margin-bottom: 10px;
 }
+
+.post-editing-menu {
+    margin-left: 10px !important;
+    cursor: pointer;
+}
+

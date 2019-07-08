@@ -1,0 +1,46 @@
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    display: inline-block;
+    width: 140px;
+    height: 45px;
+    margin-top: -14px;
+}
+
+.btn-upload-image {
+    margin-left: 22px !important;
+}
+
+.upload-btn-wrapper input[type=file] {
+    height:42px;
+    width: 96px;
+    position: absolute;
+    left: 22px;
+    top: 0;
+    opacity: 0;
+}
+
+.post-creating-holder {
+   width: 50%;
+   height: 150px;
+   padding: 20px;
+   margin: auto;
+   margin-top: 16px;
+   margin-bottom: 15px;
+   background: #fff;
+  
+    textarea {
+        height: 60px;
+    }
+
+    .icon-holder {
+        display: flex;
+        justify-content: center;
+        margin-top: 8px;
+        i {
+            width: 75px;
+            color: gray;
+        }
+    }
+}

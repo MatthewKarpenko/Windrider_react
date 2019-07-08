@@ -1,9 +1,13 @@
 import React from 'react';
 
-const MainPage = () => {
+class MainPage extends React.Component {
+      
+  render() {
+
     return (
-        <p className ="kostyapidor">У сука БАН!</p>
+     <div></div>
     )
+  }
 }
 
 export default MainPage

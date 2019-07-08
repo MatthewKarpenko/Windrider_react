@@ -10,9 +10,17 @@
 body {
     color: white;    
     font-family: 'Rubik', sans-serif;       
+    a:hover {
+
+
+        color: $second-color;
+
+    }
 }
 
-.kostyapidor {
-    font-size: 100px;
-    color: black;
+
+
+.alert-color {
+    color: #e53935 !important;
 }
+

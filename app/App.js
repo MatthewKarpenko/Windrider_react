@@ -1,65 +1,115 @@
 import React, { Component } from "react";
-import Navigation from './components/Navigation.js'
-import './app.scss';
 import { HashRouter } from "react-router-dom";
+import { SideNav, SideNavItem } from "react-materialize";
+
+import "./app.scss";
+import Navigation from "./components/Navigation.js";
+import WindriderImg from "./images/head3.png";
+
+
+const sideBarTrigger = (
+  <a className="toc item sidenav-trigger" style={{color: 'gray'}} >
+    {" "}
+    <i className="sidebar icon" />
+  </a>
+);
 
 class App extends Component {
+  componentDidMount() {
+    M.AutoInit();
+  }
 
-    componentDidMount() {
-        M.AutoInit()
-    }
-
-    render() {
-        return (
-            <HashRouter>
-            <ul id="dropdown1" class="dropdown-content">
-  <li><a href="#!">one</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul>
-<nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo">Logo</a>
-    <ul class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-    
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
-    </ul>
-  </div>
-</nav>
-           
-<Navigation />
-           
-  <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+  render() {
+    return (
+      <HashRouter>
+        <div className="pusher">
+          <div className="ui inverted vertical masthead segment">
+            <div className="ui container">
+              <div className="ui large secondary inverted pointing menu">
+                <SideNav
+                  trigger={sideBarTrigger}
+                  options={{ closeOnClick: true }}
+                  style={{fontFamily:'Rubik, sans-serif'}}
+                  
+                >
+                  <SideNavItem
+                    userView
+                    user={{
+                      background: "https://placeimg.com/640/480/tech",
+                      name: "Матвей Карпенко"
+                    }}
+                  />
+                  <SideNavItem icon="home">
+                    
+                  </SideNavItem>
+                  <SideNavItem divider />
+                  <SideNavItem className="sidenav-link">Главная</SideNavItem>
+                  <SideNavItem>Школы</SideNavItem>
+                  <SideNavItem>О нас</SideNavItem>
+                  <SideNavItem>Контакты</SideNavItem>
+                </SideNav>
+                <a className="active item">Home</a>
+                <a className="item">Work</a>
+                <a className="item">Company</a>
+                <a className="item">Careers</a>
               </div>
-              <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
-                <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+            </div>
+            </div>
+
+            <Navigation />
+
+            <div className="ui inverted vertical footer segment">
+              <div className="ui container">
+                <div className="ui stackable inverted divided equal height stackable grid">
+                  <div className="three wide column">
+                    <h4 className="ui inverted header">About</h4>
+                    <div className="ui inverted link list">
+                      <a href="#" className="item">
+                        Sitemap
+                      </a>
+                      <a href="#" className="item">
+                        Contact Us
+                      </a>
+                      <a href="#" className="item">
+                        Religious Ceremonies
+                      </a>
+                      <a href="#" className="item">
+                        Gazebo Plans
+                      </a>
+                    </div>
+                  </div>
+                  <div className="three wide column">
+                    <h4 className="ui inverted header">Services</h4>
+                    <div className="ui inverted link list">
+                      <a href="#" className="item">
+                        Banana Pre-Order
+                      </a>
+                      <a href="#" className="item">
+                        DNA FAQ
+                      </a>
+                      <a href="#" className="item">
+                        How To Access
+                      </a>
+                      <a href="#" className="item">
+                        Favorite X-Men
+                      </a>
+                    </div>
+                  </div>
+                  <div className="seven wide column">
+                    <h4 className="ui inverted header">Footer Header</h4>
+                    <p>
+                      Extra space for a call to action inside the footer that
+                      could help re-engage users.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-            </div>
-          </div>
-        </footer>
-            </HashRouter>
-        );
-    }
+       
+      </HashRouter>
+    );
+  }
 }
 
 export default App;
