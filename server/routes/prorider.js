@@ -38,7 +38,7 @@ router.post('/signup', (req, res, next) => {
                             email: email,
                             password: hash
                         }).then(prorider => {
-                            res.status(500).json({
+                            res.status(200).json({
                                 prorider: prorider
                             })
                         }).catch(err => {
