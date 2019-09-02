@@ -14,6 +14,7 @@ const proriderRoutes = require('./routes/prorider');
 const imagesRouter = require('./routes/image');
 const albumsRouter = require('./routes/album');
 const postsRouter = require('./routes/post');
+const adminRouter = require('./routes/admin');
 
 const multer = require('multer');
 const storage = multer.diskStorage({
@@ -55,6 +56,7 @@ app.use('/proriders', proriderRoutes);
 app.use('/images', imagesRouter);
 app.use('/albums', albumsRouter);
 app.use('/posts', postsRouter);
+app.use('/admin', adminRouter);
 
 
 app.use((req, res, next) => {
