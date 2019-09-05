@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const config = require('../config');
 const auth = require('../middleware/auth');
 
-const Album = require('../models/album');
+const Admin = require('../models/admin');
 
 const nodemailer = require('nodemailer');
 
-router.post('/', (req, res) => {
+router.post('/', auth, (req, res) => {
     console.log(req.body.email);
     let transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -30,6 +33,56 @@ router.post('/', (req, res) => {
             console.log('Email sent: ' + info.response);
         }
     });
+});
+
+router.post('/login', (req, res, next) => {
+
+    console.log(req.body.email);
+    Admin.find({email: req.body.email})
+        .exec()
+        .then(admin => {
+            if (admin.length < 1) {
+                return res.status(401).json({
+                    message: 'Auth failed'
+                });
+            } else {
+                bcrypt.compare(req.body.password, admin[0].password, (err, result) => {
+                    if (err) {
+                        return res.status(401).json({
+                            message: 'Auth failed'
+                        });
+                    }
+                    if (result) {
+                        const token = jwt.sign(
+                            {
+                                email: admin[0].email,
+                                userId: admin[0]._id
+                            },
+                            config.JWT_KEY,
+                            {
+                                expiresIn: '1h'
+                            }
+                        );
+                        res.cookie('access_token', token, {
+                            maxAge: 60 * 60 * 24
+                        });
+                        return res.status(200).json({
+                            message: 'Auth successful',
+                            token: token
+                        })
+                    }
+                    res.status(401).json({
+                        message: 'Auth failed'
+                    });
+                })
+            }
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err
+            })
+        });
+
 });
 
 module.exports = router;

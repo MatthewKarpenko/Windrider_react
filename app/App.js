@@ -7,6 +7,7 @@ import "./app.scss";
 import Navigation from "./components/Navigation.js";
 import Admin from "./components/Admin.js";
 import WindriderImg from "./images/head3.png";
+import AdminLogin from "./components/AdminLogin";
 
 
 const sideBarTrigger = (
@@ -61,6 +62,7 @@ class App extends Component {
 
                         <Route exact path="/" component={Navigation} />
                         <Route path="/admin" component={Admin} />
+                        <Route path="/adminLogin" component={AdminLogin} />
 
                         <div className="ui inverted vertical footer segment">
                             <div className="ui container">
