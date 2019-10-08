@@ -47,17 +47,20 @@ const upload = multer({
 
 app.use(cors());
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(staticAsset(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/proriders', proriderRoutes);
-app.use('/images', imagesRouter);
-app.use('/albums', albumsRouter);
-app.use('/posts', postsRouter);
-app.use('/admin', adminRouter);
+app.use('/api/proriders', proriderRoutes);
+app.use('/api/images', imagesRouter);
+app.use('/api/albums', albumsRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/admin', adminRouter);
 
+app.get('/', (req, res) => {
+   res.sendFile('/application/index.html');
+});
 
 app.use((req, res, next) => {
     const err = new Error('Not Found');

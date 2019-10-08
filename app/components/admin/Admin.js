@@ -6,12 +6,17 @@ class Admin extends React.Component {
         super();
 
         this.sendEmail = () => {
-            let xhr = new XMLHttpRequest();
-            console.log(this.input.current);
-            console.log(this.input.current.value);
-            xhr.open('POST', 'http://localhost:3000/admin');
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send(`email=${this.input.current.value}`);
+            fetch('http://localhost:3000/api/admin', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({email: this.input.current.value})
+            })
+                .then(response => {
+                    JSON.parse(response);
+                    console.log(response);
+            });
         };
 
         this.input = React.createRef();

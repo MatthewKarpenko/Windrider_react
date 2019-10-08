@@ -5,9 +5,10 @@ import {SideNav, SideNavItem} from "react-materialize";
 
 import "./app.scss";
 import Navigation from "./components/Navigation.js";
-import Admin from "./components/Admin.js";
+import Admin from "./components/admin/Admin.js";
+import {ProtectedRoute} from "./components/admin/ProtectedRoute.js";
 import WindriderImg from "./images/head3.png";
-import AdminLogin from "./components/AdminLogin";
+import AdminLogin from "./components/admin/AdminLogin";
 
 
 const sideBarTrigger = (
@@ -61,7 +62,7 @@ class App extends Component {
                         </div>
 
                         <Route exact path="/" component={Navigation} />
-                        <Route path="/admin" component={Admin} />
+                        <ProtectedRoute path="/admin" component={Admin} />
                         <Route path="/adminLogin" component={AdminLogin} />
 
                         <div className="ui inverted vertical footer segment">

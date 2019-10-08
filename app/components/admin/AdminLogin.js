@@ -1,4 +1,5 @@
 import React from 'react';
+import Auth from '../../helpers/Auth';
 
 class AdminLogin extends React.Component {
 
@@ -6,17 +7,21 @@ class AdminLogin extends React.Component {
         super();
 
         this.sendEmail = () => {
-            let xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://localhost:3000/admin/login');
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhr.send(`email=${this.email.current.value}&&password=${this.password.current.value}`);
+            Auth.login(this.email.current.value, this.password.current.value, () => {
+                console.log('ewew');
+                this.props.history.push('/admin');
+            });
         };
 
         this.email = React.createRef();
         this.password = React.createRef();
     }
 
-
+    componentDidMount() {
+        if (Auth.isAuthenticated()) {
+            this.props.history.push('/admin');
+        }
+    };
 
     render() {
 
@@ -24,10 +29,10 @@ class AdminLogin extends React.Component {
             <div>
                 <input type="text" ref={this.email}/>
                 <input type="password" ref={this.password}/>
-                <button onClick={this.sendEmail}>send email</button>
+                <button onClick={this.sendEmail}>Login</button>
             </div>
         )
-    }
+    };
 }
 
 export default AdminLogin

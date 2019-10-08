@@ -10,7 +10,7 @@ const Admin = require('../models/admin');
 const nodemailer = require('nodemailer');
 
 router.post('/', auth, (req, res) => {
-    console.log(req.body.email);
+    console.log('body', req.body.email);
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -37,7 +37,8 @@ router.post('/', auth, (req, res) => {
 
 router.post('/login', (req, res, next) => {
 
-    console.log(req.body.email);
+    console.log('body', req.body);
+
     Admin.find({email: req.body.email})
         .exec()
         .then(admin => {
