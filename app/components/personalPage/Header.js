@@ -1,36 +1,49 @@
-import React from 'react'
+import React from "react";
 
-import avatar from "../../images/avatar.jpg"
-const bg = require('../../images/proriderImageBackground.png')
+import ContactProriderIcons from './ContactProriderIcons'
+import avatar from "../../images/avatar.jpg";
+
 
 class Header extends React.Component {
-    render() {
-      return (
-          <div className='header-container' style ={ { backgroundImage: "url("+bg+")" } }> 
-          <div className="add-profile"><p><i className="pencil alternate icon"></i> Редактировать профиль</p></div>
-            <div className='general-info'>
-                <img className="avatarImage" src={avatar}/>
-                <p className="prorider-header-name">Матвей Карпенко</p>
-                <p className="prorider-header-position">Пожилой прорайдер Windrider</p>
-            </div>    
-            <div className="likesAndPosts-info">
+  render() {
+    return (
+      <div className="header-container">
+        <div className="general-info">
+          <div className='avatar-mainInfo'>
+            <img  src={avatar} />
+
+            <div className="name-position">
               <div>
-                <p>Постов</p>
-                <p>10</p>
+              <p className='prorider-name'>
+                Матвей Карпенко
+              </p>
+              <p className='prorider-specialization'>KiteSurfing/Windsurfing</p>
               </div>
-              <div>
-                <p>Лайков</p>
-                <p>23</p>
+              <div className='extraInfo'>
+                <div>
+                <p className='infoName'>School in:</p>
+                 <p><i className='map marker alternate icon'></i>Warsaw</p>
+                </div>
+                <div>
+                  <p className='infoName'>Contact me:</p>
+                  <ContactProriderIcons />
+                  <div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p>Опыт</p>
-                <p>2г.</p>
-              </div>
-              
             </div>
           </div>
-      )  
-    } 
+          <div className="likesAndPosts-info">
+            <p><span>Wisdom:</span> 2 y.</p>
+            <hr/>
+            <p><span>Posts:</span> 10</p>
+            <hr/>
+            <p><span>Likes:</span> 40</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Header
+export default Header;

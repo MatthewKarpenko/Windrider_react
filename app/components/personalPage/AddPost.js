@@ -107,13 +107,13 @@ class AddPost extends Component {
                   </div>
                 </Modal.Content>
                 <div className="upload-btn-wrapper">
-                  <button className="btn-upload-image ui button">
-                    <p>
+                  <button className="btn-upload-image ui button ">
+                    <p >
                       <i className="plus icon" />
                       Фото
                     </p>
                   </button>
-                  <input type="file" ref={this.imgForNewPost} name="myfile" />
+                  <input className='pointer' type="file" ref={this.imgForNewPost} name="myfile" />
                 </div>
                 <div className="actions">
                   <div className="ui button">Отменить</div>
