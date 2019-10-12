@@ -1,14 +1,16 @@
 import React, {Component} from "react";
 import {HashRouter} from "react-router-dom";
-import {Route, Link, BrowserRouter as Router} from 'react-router-dom';
+import {Route, BrowserRouter as Router} from 'react-router-dom';
 import {SideNav, SideNavItem} from "react-materialize";
 
 import "./app.scss";
 import Navigation from "./components/Navigation.js";
+
 import Admin from "./components/admin/Admin.js";
 import {ProtectedRoute} from "./components/admin/ProtectedRoute.js";
 import WindriderImg from "./images/head3.png";
 import AdminLogin from "./components/admin/AdminLogin";
+import AdminLogin from "./components/AdminLogin";
 
 
 const sideBarTrigger = (
