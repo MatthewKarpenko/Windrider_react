@@ -10,7 +10,6 @@ import Admin from "./components/admin/Admin.js";
 import {ProtectedRoute} from "./components/admin/ProtectedRoute.js";
 import WindriderImg from "./images/head3.png";
 import AdminLogin from "./components/admin/AdminLogin";
-import AdminLogin from "./components/AdminLogin";
 
 
 const sideBarTrigger = (
