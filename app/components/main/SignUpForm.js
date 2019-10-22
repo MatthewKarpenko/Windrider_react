@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'react-materialize';
 import { Modal } from 'semantic-ui-react'; 
 
-import AlertModal from './AlertModal';
+import AlertModal from '../reusableComponents/AlertModal';
 
 
 axios.defaults.baseURL = 'http://localhost:3000';

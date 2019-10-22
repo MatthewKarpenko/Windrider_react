@@ -1,7 +1,9 @@
 class Auth {
     constructor() {
-        console.log(document.cookie);
-        this.authenticated = false;
+        this.authenticated = localStorage._token ? true : false;
+        this._token = localStorage._token || null;
+
+        this.isAuthenticated();
     }
 
     login(email, password, cb) {
@@ -9,7 +11,8 @@ class Auth {
             cb();
             return;
         }
-        fetch('http://localhost:3000/api/admin/login', {
+
+        fetch('https://windrider-server.herokuapp.com/api/admin/login', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'
@@ -19,18 +22,26 @@ class Auth {
             .then(res => {
                 if (res.ok){
                     res.json()
+                        .then(response => {
+                                if (response.success) {
+                                    this.authenticated = true;
+                                    this._token = localStorage._token = response.data;
+                                }
+                                cb();
+                            }
+                        );
                 } else {
                     throw new Error('Auth failed');
                 }
             })
-            .then(response => {
-                console.log(response);
-                this.authenticated = true;
-                cb();
-            })
             .catch(e => {
-                console.log(e.message);
+                console.log(e);
+                throw new Error('Auth failed');
             });
+    };
+
+    getToken() {
+        return this._token;
     };
 
     isAuthenticated() {
