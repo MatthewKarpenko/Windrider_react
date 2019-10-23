@@ -1,0 +1,14 @@
+@import '../variables/colors.scss';
+
+
+#admin-login {
+    height: 100vh;
+    width: auto;
+    background-image: url('/images/admin-login-bg.jpg');
+    background-size: cover;
+
+    .form {
+        position: absolute;
+        top: 10%;
+    };
+}

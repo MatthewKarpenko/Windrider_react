@@ -1,6 +1,6 @@
 import React from 'react'
 import LightboxComp from './LightboxComp';
-import avatar from "../../../../images/avatar.jpg";
+import avatar from "../../../../../images/avatar.jpg";
 
 const Lightbox = () => (
     <div>

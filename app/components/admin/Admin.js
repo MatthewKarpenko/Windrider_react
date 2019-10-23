@@ -27,9 +27,15 @@ class Admin extends React.Component {
     render() {
 
         return (
-            <div>
-                <input type="text" ref={this.input}/>
-                <button onClick={this.sendEmail}>send email</button>
+            <div className="row">
+                <div className="col s3">
+                </div>
+                <div className="col s9">
+                    <div>
+                        <input type="text" ref={this.input}/>
+                        <button onClick={this.sendEmail}>send email</button>
+                    </div>
+                </div>
             </div>
         )
     }

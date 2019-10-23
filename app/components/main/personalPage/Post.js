@@ -1,8 +1,8 @@
 import React from 'react';
 import { Transition, Dropdown } from "semantic-ui-react";
 
-import WindriderImg from '../../images/head3.png';
-import AskDeleteModal from '../reusableComponents/AskModal'
+import WindriderImg from '../../../images/head3.png';
+import AskDeleteModal from '../../reusableComponents/AskModal'
 
 class Post extends React.Component {
   constructor(props) {

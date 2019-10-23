@@ -1,7 +1,7 @@
 import React from "react";
 
 import ContactProriderIcons from './ContactProriderIcons'
-import avatar from "../../images/avatar.jpg";
+import avatar from "../../../images/avatar.jpg";
 
 
 class Header extends React.Component {
