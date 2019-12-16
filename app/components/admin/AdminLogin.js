@@ -17,13 +17,12 @@ class AdminLogin extends React.Component {
     }
 
     componentDidMount() {
-        if (Auth.isAuthenticated()) {
+        if (Auth.authenticated) {
             this.props.history.push('/admin');
         }
     };
 
     render() {
-
         return (
             <div id="admin-login">
                 <div className="row">

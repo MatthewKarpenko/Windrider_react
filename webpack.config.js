@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: "./app/index.js",
+    entry: ["babel-polyfill", "./app/index.js"],
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "index.js"
@@ -35,17 +35,11 @@ module.exports = {
             },
             {
                 test: /\.(gif|png|jpe?g|svg)$/i,
-                use: [
-                  'file-loader',
-                  {
-                    loader: 'image-webpack-loader',
-                    options: {
-                      bypassOnDebug: true, // webpack@1.x
-                      disable: true, // webpack@2.x and newer
-                    },
-                  },
+                use: [{
+                    loader: 'url-loader',
+                }
                 ],
-              }
+            }
         ]
     },
     devServer: {
@@ -59,9 +53,7 @@ module.exports = {
             template: "./app/index.html"
         }),
         new CopyPlugin([
-            {from: './app/images/**/*', transformPath(targetPath) {
-                    return targetPath.replace('app\\', '');
-                }}
+            { from: path.join(__dirname, "/app/images/"), to: path.join(__dirname, "/dist/images/") }
         ])
     ]
 };

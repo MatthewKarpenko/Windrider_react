@@ -1,0 +1,10 @@
+@import '../variables/colors.scss';
+
+.admin-page {
+    color: #000000;
+
+    .invites-list {
+        max-height: 400px;
+        overflow: auto;
+    }
+}
