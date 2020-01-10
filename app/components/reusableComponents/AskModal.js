@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Modal, Button, Header, Icon } from "semantic-ui-react";
 
-export default class  extends Component {
+export default class AskModal extends Component {
     render() {
         return (
           <Modal

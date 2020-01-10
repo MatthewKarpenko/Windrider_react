@@ -1,5 +1,5 @@
 import React from 'react';
-import homepic from '../../images/homepic2-3.jpg';
+// import homepic from '../../images/homepic2-3.jpg';
 
 class MainPage extends React.Component {
 
@@ -8,7 +8,7 @@ class MainPage extends React.Component {
     return (
       <div>
         <div id="homepic">
-          <img src={homepic} className="z-depth-2" alt="homepic" width="95%" height="100%" />
+          {/* <img src={homepic} className="z-depth-2" alt="homepic" width="95%" height="100%" /> */}
         </div>
 
         <div className="schoolText">

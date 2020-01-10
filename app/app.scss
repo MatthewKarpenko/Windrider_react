@@ -4,6 +4,7 @@
 @import './styles/variables/mixin.scss';
 @import './styles/personalPageStyles/WholePageStyles.scss';
 @import './styles/personalPageStyles/lightBox.scss';
+@import './styles/modals.scss';
 @import 'styles/admin/loginPage.scss';
 @import 'styles/admin/adminPage.scss';
 
@@ -28,5 +29,9 @@ body {
 
 .alert-color {
     color: #e53935 !important;
+}
+
+textarea {
+    resize: none !important;
 }
 
