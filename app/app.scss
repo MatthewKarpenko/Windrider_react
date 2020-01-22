@@ -3,7 +3,7 @@
 @import './styles/variables/colors.scss';
 @import './styles/variables/mixin.scss';
 @import './styles/personalPageStyles/WholePageStyles.scss';
-@import './styles/personalPageStyles/lightBox.scss';
+@import './styles/personalPageStyles/comments.scss';
 @import './styles/modals.scss';
 @import 'styles/admin/loginPage.scss';
 @import 'styles/admin/adminPage.scss';
@@ -13,7 +13,6 @@
 
 body {
     margin: 0;
-    color: white;    
     font-family: 'Rubik', sans-serif;    
     a:hover {
         color: $second-color;

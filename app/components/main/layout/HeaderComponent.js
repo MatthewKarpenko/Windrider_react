@@ -1,5 +1,5 @@
 import React from "react";
-import {SideNav, SideNavItem} from "react-materialize";
+// import {SideNav, SideNavItem} from "react-materialize";
 
 const sideBarTrigger = (
     <a className="toc item sidenav-trigger" style={{color: 'gray'}}>
@@ -24,7 +24,7 @@ class HeaderComponent extends React.Component {
                 <div className="ui inverted vertical masthead segment">
                     <div className="ui container">
                         <div className="ui large secondary inverted pointing menu">
-                            <SideNav
+                            {/* <SideNav
                                 trigger={sideBarTrigger}
                                 options={{closeOnClick: true}}
                                 style={{fontFamily: 'Rubik, sans-serif'}}
@@ -45,7 +45,7 @@ class HeaderComponent extends React.Component {
                                 <SideNavItem>Школы</SideNavItem>
                                 <SideNavItem>О нас</SideNavItem>
                                 <SideNavItem>Контакты</SideNavItem>
-                            </SideNav>
+                            </SideNav> */}
                             <a className="active item">Home</a>
                             <a className="item">Work</a>
                             <a className="item">Company</a>

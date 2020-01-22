@@ -26,17 +26,17 @@ class MainPage extends React.Component {
         <div className="socbot center-align">
           <div className="socbot-element">
             <a href="#">
-              <img src="icons/facebook_1.svg" className="link2" alt="facebook" />
+              <img src="../../assets/icons/facebook.svg" className="link2" alt="facebook" />
             </a>
           </div>
           <div className="socbot-element">
             <a href="#">
-              <img src="icons/instagram.svg" className="link2" alt="instagram" />
+              <img src="../../assets/icons/instagram.svg" className="link2" alt="instagram" />
             </a>
           </div>
           <div className="socbot-element">
             <a href="#">
-              <img src="icons/mail.svg" className="link2" alt="mail" />
+              <img src="../../assets/icons/mail.svg" className="link2" alt="mail" />
             </a>
           </div>
         </div>

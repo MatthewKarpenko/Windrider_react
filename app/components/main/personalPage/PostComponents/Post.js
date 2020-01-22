@@ -1,15 +1,14 @@
 import React from 'react';
 import { Transition, Dropdown, Button, Form, TextArea } from 'semantic-ui-react';
 
-import WindriderImg from '../../../images/head3.png';
-import YesNoModal from '../../reusableComponents/YesNoModal';
+import YesNoModal from '../../../reusableComponents/YesNoModal';
+import CreateComment from './CreateComment';
+import CommentsBlock from './CommentsBlock';
 
 class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showCommentButton: false,
-      visible: false,
       commentsQuantity: props.commentsQuantity,
       likesQuantity: props.likesQuantity,
       authorText: props.authorText,
@@ -54,7 +53,6 @@ class Post extends React.Component {
     //functions this binding
     this.showElem = this.showElem.bind(this);
     this.hideElem = this.hideElem.bind(this);
-    this.toggleVisibility = this.toggleVisibility.bind(this);
     this.likePost = this.likePost.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.deletePost = this.deletePost.bind(this);
@@ -91,9 +89,6 @@ class Post extends React.Component {
     this.setState({ showCommentButton: false });
   }
 
-  toggleVisibility() {
-    this.setState(prevState => ({ visible: !prevState.visible }));
-  }
 
   changeLikeText() {
     let text;
@@ -141,7 +136,6 @@ class Post extends React.Component {
   startEditText() {
     this.proriderText.current.style.display="none";
     this.setState({visibleEditField: true});
-    console.log(this.editingField.current.value)
 
   }
 
@@ -163,7 +157,7 @@ class Post extends React.Component {
 
             <div className="right floated meta timeWhenPosted">{this.props.timeWhenPosted} ч.</div>
             <div className="username-image">
-              <img className="ui avatar image" src={WindriderImg} />
+              <img className="ui avatar image" src='../../../assets/head3.png' />
               <p>Матвей Карпенко</p>
             </div>
           </div>
@@ -197,20 +191,10 @@ class Post extends React.Component {
               </p>
             </div>
           </div>
-
-          <div className="extra content addCommentBlock">
-            <div className="commentTextAreaHolder">
-              <i className="comment outline icon" />
-              <Form reply>
-                <Form.TextArea content={visible ? 'Hide' : 'Show'} onFocus={this.toggleVisibility} onBlur={this.toggleVisibility} rows={1} placeholder="Оставить комментарий..." />
-              </Form>
-            </div>
-            <Transition visible={visible} animation="scale" duration={350}>
-              <button className="ui right secondary button comment-button">Отправить</button>
-            </Transition>
-          </div>
+       <CommentsBlock />
+       <CreateComment comments={[]} />
+        
         </div>
-
         <YesNoModal open={modalOpen} dimension="mini" onClose={this.toggleModal} cb={this.state.modalCallBack} question={this.state.modalQuestion} header={this.state.modalHeader} />
       </section>
     );

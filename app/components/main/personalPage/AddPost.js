@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Modal, TextArea, Form} from 'semantic-ui-react';
-import Post from './Post';
+import Post from './PostComponents/Post';
 
 
 class ExistedPosts extends Component {
