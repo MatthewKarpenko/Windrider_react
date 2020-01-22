@@ -7,12 +7,19 @@
 
 .postHolder {
     margin: auto !important;
+    color: black;
+    cursor: default;
 }
 
-@media only screen and (min-width: 480px) {
-  .postHolder {
-    width: 450px !important;
-  }
+.timeWhenPosted {
+    padding-top: 7px;
+    padding-right: 7px;
+}
+
+.editPostButton {
+    border-radius: 40px;
+    width: 20px;
+    height: 32px;
 }
 
 .username-image {
@@ -28,12 +35,51 @@
     }
 }
 
-.author-time {
+.feedbackContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    width: 100%;
     color: black;
+    
 }
 
-.comments-likes-container {
-    color: black;
+.commentsNumber {
+    cursor: default;
+}
+
+.likesNumber{
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+        p {
+            padding-top: 2px;
+        }
+}
+
+.addCommentBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+       
+}
+
+.commentTextAreaHolder {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    textarea {
+        border: none !important;
+        border-bottom: 1px solid $light-grey !important;
+        resize: none !important;
+    }
+    form {
+        width: 100%;
+    }
 }
 
 .comment-button {
@@ -46,6 +92,19 @@
     width: 90%;
     color: black;
     margin-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.textEditing {
+    display: none !important ;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto !important;
+    width: 93% !important;
+     textarea {
+        height: 200px;
+        margin-bottom: 15px !important;
+     }
 }
 
 .post-editing-menu {
@@ -53,3 +112,14 @@
     cursor: pointer;
 }
 
+@media only screen and (min-width: 480px) {
+    .postHolder {
+      width: 450px !important;
+    }
+  }
+@media only screen and (max-width: 480px) {
+    .postHolder {
+      width: 95% !important;
+    }
+  }
+  

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-materialize';
+// import { Button } from 'react-materialize';
 import axios from 'axios';
 import { Modal } from 'semantic-ui-react'; 
 
@@ -112,7 +112,7 @@ class SignInForm extends Component {
               </p>
 
               <div className="FormField">
-                  <Button className="FormField__Button mr-20">Sign In <i class="material-icons right">send</i></Button> 
+                  {/* <Button className="FormField__Button mr-20">Sign In <i class="material-icons right">send</i></Button>  */}
               </div>
             </form>
           <Modal size={'tiny'} open={this.state.open} onClose={this.close} style={{margin: 'auto'}} closeIcon>

@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link,NavLink} from 'react-router-dom';
 import SignUpForm from './SignUpForm';
 import SignInForm from './SignInForm';
-import WindriderImg from '../../images/head3.png'
+import WindriderImg from '../../assets/head3.png'
 
 class LoginRegistration extends React.Component {
     render(){

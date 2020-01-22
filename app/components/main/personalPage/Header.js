@@ -1,7 +1,6 @@
 import React from "react";
 
 import ContactProriderIcons from './ContactProriderIcons'
-import avatar from "../../../images/avatar.jpg";
 
 
 class Header extends React.Component {
@@ -10,7 +9,7 @@ class Header extends React.Component {
       <div className="header-container">
         <div className="general-info">
           <div className='avatar-mainInfo'>
-            <img  src={avatar} />
+            <img  src={"../../../assets/avatar.jpg"} />
 
             <div className="name-position">
               <div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import { Button } from 'react-materialize';
+// import { Button } from 'react-materialize';
 import { Modal } from 'semantic-ui-react'; 
 
 import AlertModal from '../reusableComponents/AlertModal';
@@ -201,7 +200,7 @@ class SignUpForm extends Component {
               </p>
 
               <div className="FormField">
-              <Button className="FormField__Button mr-20">Sign Up <i class="material-icons right">send</i></Button> 
+              {/* <Button className="FormField__Button mr-20">Sign Up <i class="material-icons right">send</i></Button>  */}
               </div>
             </form>
            <Modal size={'tiny'} open={this.state.open} onClose={this.close} style={{margin: 'auto'}} closeIcon>

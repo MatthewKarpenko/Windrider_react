@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import { Header, Modal, TextArea, Form} from 'semantic-ui-react';
-import Post from './Post';
+import Post from './PostComponents/Post';
 
 
 class ExistedPosts extends Component {
   constructor(props){
     super(props);
      this.postsArray = [
-       <Post
-         text="hello"
-         img={null}
-         time={14}
-         key={Math.random() * Math.floor(100)}
-       />,
-       <Post
-         text="hello"
-         img={null}
-         time={14}
-         key={Math.random() * Math.floor(100)}
-       />
+      //  <Post
+      //    text="hello"
+      //    img={null}
+      //    time={14}
+      //    key={Math.random() * Math.floor(100)}
+      //  />,
+      //  <Post
+      //    text="hello"
+      //    img={null}
+      //    time={14}
+      //    key={Math.random() * Math.floor(100)}
+      //  />
      ];
   }
   render() {
